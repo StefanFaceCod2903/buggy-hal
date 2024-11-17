@@ -88,11 +88,10 @@ LogEx(
         return;
     }
 
-    // No, just no this just corr
-    //if (RtcGetTickCount() % 100 < 2)
-    //{
-    //    CmdBiteCookie(0);
-    //}
+    if (RtcGetTickCount() % 100 < 2)
+    {
+        CmdBiteCookie(0);
+    }
 
 
     if (LogLevel == LogLevelTrace &&

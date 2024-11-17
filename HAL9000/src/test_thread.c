@@ -318,7 +318,6 @@ void
     IN              PVOID               PrepareContext
     )
 {
-    #pragma warning(disable:4090)
     PVOID pNewContext;
     ASSERT(NULL != Context);
 

@@ -721,14 +721,10 @@ _IoApicSystemRetrievePrtEntries(
             bRestartSearch = FALSE;
         }
 
-        LOG("PRT1\n");
-
         if (i == 1)
         {
             ASSERT(noOfPrtEntries == m_ioApicData.NoOfInterruptOverrides);
         }
-
-        LOG("PRT2\n");
     }
 
     m_ioApicData.NoOfPrtEntries = noOfPrtEntries;

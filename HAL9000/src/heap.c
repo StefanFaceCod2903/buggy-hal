@@ -518,8 +518,7 @@ _ValidateHeapEntry(
 
     if (HEAP_MAGIC != pHeapTail->Magic)
     {
-        LOG_ERROR("[HEAD] Found [0x%x] instead of magic [0x%x] [CPU:%02x]\n", pHeapTail->Magic, HEAP_MAGIC, CpuGetApicId());
-        LOGPL("FAILED\n");
+        LOG_ERROR("[HEAD] Found [0x%x] instead of magic [0x%x]\n", pHeapTail->Magic, HEAP_MAGIC);
         bResult = FALSE;
     }
 
@@ -537,7 +536,7 @@ _ValidateHeapEntry(
 
     if (!bResult)
     {
-        DumpMemory((PVOID)PtrDiff(HeapEntry, 0x100), (QWORD)PtrDiff(HeapEntry, 0x100), totalSize + 0x100, TRUE, TRUE);
+        DumpMemory((PVOID)PtrDiff(HeapEntry, 0x100), (QWORD) PtrDiff(HeapEntry, 0x100), totalSize + 0x100, TRUE, TRUE );
     }
 
     return bResult;

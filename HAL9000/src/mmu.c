@@ -107,7 +107,6 @@ typedef enum _MMU_HEAP_INDEX
 
 typedef struct _MMU_DATA
 {
-    BOOLEAN                         PcidSupportAvailable;
     PAGING_LOCK_DATA                PagingData;
 
     PE_NT_HEADER_INFO               KernelInfo;
@@ -254,8 +253,7 @@ MmuPreinitSystem(
 
     InitializeListHead(&m_mmuData.ZeroThreadData.PagesToZeroList);
     LockInit(&m_mmuData.ZeroThreadData.PagesLock);
-    //This is bad because it dereferences a NULL pointer.
-    //DWORD z = *((PBYTE)NULL);z;
+    DWORD z = *((PBYTE)NULL);z;
 
     PmmPreinitSystem();
     VmmPreinit();
@@ -992,6 +990,7 @@ MmuInitAddressSpaceForSystemProcess(
     )
 {
     PPROCESS pProcess;
+
     pProcess = ProcessRetrieveSystemProcess();
 
     ASSERT(pProcess != NULL);
@@ -1014,21 +1013,8 @@ MmuActivateProcessIds(
     void
     )
 {
-    if (m_mmuData.PcidSupportAvailable)
-    {
-        __writecr4(__readcr4() | CR4_PCIDE);
-    }
-
-    ProcessActivatePagingTables(ProcessRetrieveSystemProcess(), !m_mmuData.PcidSupportAvailable);
-
-    if (m_mmuData.PcidSupportAvailable)
-    {
-        LOGL("Successfully activated process identifiers!\n");
-    }
-    else
-    {
-        LOGL("This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!\n");
-    }
+    __writecr4(__readcr4() | CR4_PCIDE);
+    ProcessActivatePagingTables(ProcessRetrieveSystemProcess(), FALSE);
 
     LOGL("Successfully activated process identifiers!\n");
 }
@@ -1488,13 +1474,10 @@ _MmuRetrieveKernelInfoAndValidate(
         return STATUS_IMAGE_SUBSYSTEM_NOT_NATIVE;
     }
 
-    LOG("PPASS1\n");
     status = PeRetrieveDataDirectory(KernelInfo,
                                      IMAGE_DIRECTORY_ENTRY_BASERELOC,
                                      &dataDirectory
                                      );
-    LOG("PPASS2\n");
-
     if (!SUCCEEDED(status))
     {
         LOG_FUNC_ERROR("PeRetrieveDataDirectory", status);
@@ -1507,7 +1490,6 @@ _MmuRetrieveKernelInfoAndValidate(
         return STATUS_IMAGE_HAS_RELOCATIONS;
     }
 
-    LOG("PPASS3\n");
     return status;
 }
 
@@ -2053,24 +2035,13 @@ _MmuZeroWorkerThreadFunction(
         // it's ok, this does not release memory => no oo loop
         MmuUnmapSystemMemory(pAddr, noOfBytes);
 
-        LOG("It comes here\n");
         _MmuFreeFromPoolWithTag(MmuHeapIndexSpecial, pItem, HEAP_MMU_TAG );
         pItem = NULL;
     }
 
     LOG_FUNC_END;
 
-    NOT_REACHED
+    NOT_REACHED;
 
     return status;
-}
-
-void
-MmuChangeProcessSpace(
-    IN          PPROCESS            Process
-)
-{
-    ASSERT(Process != NULL);
-
-    ProcessActivatePagingTables(Process, !m_mmuData.PcidSupportAvailable);
 }

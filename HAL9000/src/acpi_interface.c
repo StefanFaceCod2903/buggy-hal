@@ -127,6 +127,8 @@ AcpiInterfaceInit(
     }
     LOG("Successfully initialized ACPI tables\n");
 
+
+
     status = _AcpiInterfaceParseMadt();
     if (!SUCCEEDED(status))
     {

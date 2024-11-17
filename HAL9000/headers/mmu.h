@@ -426,8 +426,3 @@ void
 MmuFreeSystemVirtualAddressForUserBuffer(
     IN          PVOID               KernelAddress
     );
-
-void
-MmuChangeProcessSpace(
-    IN          PPROCESS            Process
-);

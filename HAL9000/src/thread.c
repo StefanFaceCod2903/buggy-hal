@@ -165,8 +165,7 @@ ThreadSystemInitMainForCurrentCPU(
 
     ASSERT( NULL != pCpu );
 
-    // No NULL as threadName
-    //memzero(mainThreadName, MAX_PATH + 1);
+    memzero(mainThreadName, MAX_PATH + 1);
 
     snprintf( mainThreadName, MAX_PATH, "%s-%02x", "main", pCpu->ApicId );
 
@@ -191,6 +190,7 @@ ThreadSystemInitMainForCurrentCPU(
     {
         ProcessInsertThreadInList(pProcess, pThread);
     }
+
     LOG_FUNC_END;
 
     return status;
@@ -257,7 +257,6 @@ ThreadSystemInitIdleForCurrentCPU(
 
     LOG_FUNC_END_THREAD;
 
-    LOG("Finish function\n");
     return status;
 }
 
@@ -620,10 +619,9 @@ ThreadGetName(
     IN_OPT  PTHREAD             Thread
     )
 {
-    // If the input is null, which could be since it is IN_OPT, we need to check.
-    PTHREAD pThread = (NULL != Thread) ? Thread : GetCurrentThread();
+    PTHREAD pThread = Thread;
 
-    return (NULL != pThread) ? pThread->Name : "";
+    return pThread->Name;
 }
 
 TID
@@ -741,7 +739,7 @@ _ThreadInit(
             status = STATUS_HEAP_INSUFFICIENT_RESOURCES;
             __leave;
         }
-        //memzero(pThread, sizeof(THREAD) * 2);
+        memzero(pThread, sizeof(THREAD) * 2);
 
         RfcPreInit(&pThread->RefCnt);
 
@@ -1003,7 +1001,6 @@ _ThreadSchedule(
         }
     }
 
-
     // if current differs from next
     // => schedule next
     if (pNextThread != pCurrentThread)
@@ -1014,20 +1011,16 @@ _ThreadSchedule(
 
         if (pCurrentThread->Process != pNextThread->Process)
         {
-            MmuChangeProcessSpace(pCurrentThread->Process);
+            ProcessActivatePagingTables(pNextThread->Process, FALSE);
         }
 
         // Before any thread is scheduled it executes this function, thus if we set the current
         // thread to be the next one it will be fine - there is no possibility of interrupts
         // appearing to cause inconsistencies
-
-        pCurrentThread->UninterruptedTicks = 0;
-
         SetCurrentThread(pNextThread);
         ThreadSwitch( &pCurrentThread->Stack, pNextThread->Stack);
 
         ASSERT(INTR_OFF == CpuIntrGetState());
-
         ASSERT(LockIsOwner(&m_threadSystemData.ReadyThreadsLock));
 
         LOG_TRACE_THREAD("After ThreadSwitch\n");
@@ -1043,10 +1036,7 @@ _ThreadSchedule(
             LOG_TRACE_THREAD("Prev thread: %s\n", pCpu->ThreadData.PreviousThread->Name);
         }
     }
-    else
-    {
-        pCurrentThread->UninterruptedTicks++;
-    }
+
     ThreadCleanupPostSchedule();
 }
 
@@ -1083,6 +1073,7 @@ ThreadCleanupPostSchedule(
                    || prevThread == GetCurrentPcpu()->ThreadData.IdleThread);
 
             LOG_TRACE_THREAD("Will release block lock for thread [%s]\n", prevThread->Name);
+
             _Analysis_assume_lock_held_(prevThread->BlockLock);
             LockRelease(&prevThread->BlockLock, INTR_OFF);
         }
@@ -1227,9 +1218,7 @@ _ThreadDestroy(
 
     if (NULL != Thread->Name)
     {
-        LOG("1\n");
         ExFreePoolWithTag(Thread->Name, HEAP_THREAD_TAG);
-        LOG("2\n");
         Thread->Name = NULL;
     }
 
@@ -1241,9 +1230,7 @@ _ThreadDestroy(
         Thread->Stack = NULL;
     }
 
-    LOG("3\n");
     ExFreePoolWithTag(Thread, HEAP_THREAD_TAG);
-    LOG("4\n");
 }
 
 static

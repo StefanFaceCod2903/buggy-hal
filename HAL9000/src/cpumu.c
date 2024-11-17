@@ -106,8 +106,8 @@ CpuMuValidateConfiguration(
     void
     )
 {
-    // Intel elitism shall not be tolerated, when its stock is underperforming 
-    // ASSERT_INFO( CpuIsIntel(), "Who the hell wants to run on an AMD??");
+    ASSERT_INFO( CpuIsIntel(), "Who the hell wants to run on an AMD??");
+
     ASSERT_INFO( m_cpuMuData.FeatureInformation.edx.APIC, "We cannot wake up APs without APIC!");
 
     ASSERT_INFO( m_cpuMuData.FeatureInformation.edx.MSR, "We cannot do anything without MSRs!");
@@ -122,8 +122,7 @@ CpuMuValidateConfiguration(
 
     ASSERT_INFO( m_cpuMuData.FeatureInformation.edx.SSE2, "We need LFENCE/MFENCE support");
 
-    // No, they are not.
-    // ASSERT_INFO( m_cpuMuData.FeatureInformation.ecx.PCID, "Things are too slow without PCID support");
+    ASSERT_INFO( m_cpuMuData.FeatureInformation.ecx.PCID, "Things are too slow without PCID support");
 
     ASSERT_INFO( m_cpuMuData.ExtendedFeatureInformation.edx.Syscall, "We need SYSCALL/SYSRET support");
 }
@@ -268,12 +267,10 @@ CpuMuInitCpu(
     IN          BOOLEAN     ChangeStack
     )
 {
-    LOG("PROBLEMA1 [CPU:%02x]\n", CpuGetApicId());
     STATUS status;
 
     ASSERT( NULL != PhysicalCpu );
     _CpuValidateCurrentCpu();
-    LOG("PROBLEMA2 [CPU:%02x]\n", CpuGetApicId());
 
     LOG_FUNC_START;
 
@@ -282,11 +279,9 @@ CpuMuInitCpu(
     // load task register
     __ltr(PhysicalCpu->TrSelector);
 
-    LOG("PROBLEMA3 [CPU:%02x]\n", CpuGetApicId());
     // write CPU structure to GS
     SetCurrentPcpu(PhysicalCpu);
     SetCurrentThread(NULL);
-    LOG("PROBLEMA4 [CPU:%02x]\n", CpuGetApicId());
 
     // we assume we haven't used more than 1 PAGE of our stack
     if (ChangeStack)
@@ -294,10 +289,8 @@ CpuMuInitCpu(
         LOGPL("Will change to stack: 0x%X\n", PhysicalCpu->StackTop );
         CpuMuChangeStack(PhysicalCpu->StackTop);
     }
-    LOG("PROBLEMA5 [CPU:%02x]\n", CpuGetApicId());
 
     _CpuActivateAvailableFeatures();
-    LOG("PROBLEMA6 [CPU:%02x]\n", CpuGetApicId());
 
     status = SmpCpuInit();
     if (!SUCCEEDED(status))
@@ -306,15 +299,10 @@ CpuMuInitCpu(
         return status;
     }
 
-    LOG("PROBLEMA7 [CPU:%02x]\n", CpuGetApicId());
-
     SyscallCpuInit();
-
-    LOG("PROBLEMA8 [CPU:%02x]\n", CpuGetApicId());
 
     // create thread
     status = ThreadSystemInitMainForCurrentCPU();
-    LOG("PROBLEMA9 [CPU:%02x]\n", CpuGetApicId());
     if (!SUCCEEDED(status))
     {
         LOG_FUNC_ERROR("ThreadSystemInitForCurrentCPU", status);
@@ -322,9 +310,7 @@ CpuMuInitCpu(
     }
 
     // notify SMP module that the CPU has woken up
-    LOGL("ENTER SMP\n");
     SmpNotifyCpuWakeup();
-    LOGL("EXIT SMP\n");
 
     LOG_FUNC_END;
 

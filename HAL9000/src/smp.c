@@ -355,7 +355,6 @@ SmpCleanupLowerMemory(
     void
     )
 {
-    LOG("Entered SmpCleanupLowerMemory\n");
     ApTrampCleanupLowerMemory(&m_smpData.CpuList);
 }
 

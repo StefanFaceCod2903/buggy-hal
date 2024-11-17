@@ -200,10 +200,9 @@ SystemInit(
     }
     LOGL("CpuMuAllocAndInitCpu succeeded\n");
 
-    // We should not call what is not callable
     // warning C4055: 'type cast': from data pointer to function pointer
-//#pragma warning(suppress:4055)
-//    ((PFUNC_AssertFunction)&status)("C is very cool!\n");
+#pragma warning(suppress:4055)
+    ((PFUNC_AssertFunction)&status)("C is very cool!\n");
 
     // initialize IO system
     // this also initializes the IDT
