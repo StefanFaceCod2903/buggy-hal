@@ -1,0 +1,85 @@
+%ifndef _STRUCTS_ASM_
+%define _STRUCTS_ASM_
+
+;-----------------------------------------------------------------------;
+; STRUCTURE DEFINITIONS
+;-----------------------------------------------------------------------;
+
+
+struc ASM_PARAMETERS
+    .MultibootInformation               resq    1                           ; 0x00
+    .KernelBaseAddress                  resq    1                           ; 0x08
+    .KernelSize                         resq    1                           ; 0x10
+    .VirtualToPhysicalOffset            resq    1                           ; 0x18
+    .MemoryMapAddress                   resq    1                           ; 0x20
+    .MemoryMapEntries                   resd    1                           ; 0x28
+    .BiosSerialPorts                    resw    4                           ; 0x2C
+                                                                            ; 0x34
+endstruc
+
+struc PROCESSOR_STATE
+    .Rax                                resq    1
+    .Rcx                                resq    1
+    .Rdx                                resq    1
+    .Rbx                                resq    1
+    .Rsp                                resq    1
+    .Rbp                                resq    1
+    .Rsi                                resq    1
+    .Rdi                                resq    1
+    .R8                                 resq    1
+    .R9                                 resq    1
+    .R10                                resq    1
+    .R11                                resq    1
+    .R12                                resq    1
+    .R13                                resq    1
+    .R14                                resq    1   
+    .R15                                resq    1   
+    
+    .Rip                                resq    1
+    .Rflags                             resq    1
+endstruc
+
+; 4 byte aligned
+struc DISK_ADDRESS_PACKET
+    .Size                               resb    1
+    .Reserved                           resb    1
+    .SectorsToTransfer                  resw    1
+    .BufferOffset                       resw    1       ; 2 byte aligned
+    .BufferSegment                      resw    1
+    .StartingLBA                        resd    1
+    .UpperLBAPart                       resd    1
+endstruc
+
+struc INT15_MEMORY_MAP_ENTRY
+    .BaseAddress                        resq    1
+    .Length                             resq    1
+    .Type                               resd    1
+    .ExtendedAttributes                 resd    1
+endstruc
+
+struc TRANSITION_CONFIG
+    .GdtrPhysicalAddress                resd    1
+    .StackPhysicalAddress               resd    1
+    .Pml4PhysicalAddress                resd    1
+    .CodeSelector                       resw    1
+    .DataSelector                       resw    1
+    .StackVirtualAddress                resq    1
+endstruc
+
+struc SYSTEM_CONFIG
+    .LowGdt                             resb    6
+    .HighGdt                            resb    10
+    .Pml4PhysicalAddress                resd    1
+    .Code32Selector                     resw    1
+    .Data32Selector                     resw    1
+    .Code64Selector                     resw    1
+    .Data64Selector                     resw    1
+endstruc
+
+struc AP_CONFIG_ENTRY
+    .StackPhysicalAddress               resd    1
+    .Reserved0                          resd    1
+    .StackVirtualAddress                resq    1
+endstruc
+
+%endif ; _MACROS_ASM_
