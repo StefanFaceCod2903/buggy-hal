@@ -1,0 +1,1939 @@
+diff --git a/Ata/Ata.vcxproj b/Ata/Ata.vcxproj
+index 4704058..cc7be95 100644
+--- a/Ata/Ata.vcxproj
++++ b/Ata/Ata.vcxproj
+@@ -19,13 +19,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/CommonLib/CommonLib.vcxproj b/CommonLib/CommonLib.vcxproj
+index e5bf02c..ba4aadd 100644
+--- a/CommonLib/CommonLib.vcxproj
++++ b/CommonLib/CommonLib.vcxproj
+@@ -73,13 +73,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>Unicode</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='DebugNoLocks|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>Unicode</CharacterSet>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+diff --git a/CommonLib/src/lock_common.c b/CommonLib/src/lock_common.c
+index 9702061..afe66d1 100644
+--- a/CommonLib/src/lock_common.c
++++ b/CommonLib/src/lock_common.c
+@@ -21,6 +21,8 @@ LockSystemInit(
+ 
+ // warning C4028: formal parameter 1 different from declaration
+ #pragma warning(disable:4028)
++#pragma warning(disable:4113) // Error for VS2022 - same warning, different error code
++
+     if (MonitorSupport)
+     {
+         // we have monitor support
+diff --git a/Disk/Disk.vcxproj b/Disk/Disk.vcxproj
+index c7d408b..ace31b4 100644
+--- a/Disk/Disk.vcxproj
++++ b/Disk/Disk.vcxproj
+@@ -30,13 +30,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Eth_82574L/Eth_82574L.vcxproj b/Eth_82574L/Eth_82574L.vcxproj
+index 0d52ea2..ef8eb6f 100644
+--- a/Eth_82574L/Eth_82574L.vcxproj
++++ b/Eth_82574L/Eth_82574L.vcxproj
+@@ -19,13 +19,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/FAT32/FAT32.vcxproj b/FAT32/FAT32.vcxproj
+index 8855c63..61da436 100644
+--- a/FAT32/FAT32.vcxproj
++++ b/FAT32/FAT32.vcxproj
+@@ -16,7 +16,7 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>Unicode</CharacterSet>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+diff --git a/HAL/HAL.vcxproj b/HAL/HAL.vcxproj
+index 3480d2e..bc6b178 100644
+--- a/HAL/HAL.vcxproj
++++ b/HAL/HAL.vcxproj
+@@ -16,7 +16,7 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>Unicode</CharacterSet>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+diff --git a/HAL9000/HAL9000.vcxproj b/HAL9000/HAL9000.vcxproj
+index 7b0cdf7..55ba7fe 100644
+--- a/HAL9000/HAL9000.vcxproj
++++ b/HAL9000/HAL9000.vcxproj
+@@ -16,7 +16,7 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>Unicode</CharacterSet>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+diff --git a/HAL9000/headers/mmu.h b/HAL9000/headers/mmu.h
+index 88f4662..d3bd20d 100644
+--- a/HAL9000/headers/mmu.h
++++ b/HAL9000/headers/mmu.h
+@@ -426,3 +426,8 @@ void
+ MmuFreeSystemVirtualAddressForUserBuffer(
+     IN          PVOID               KernelAddress
+     );
++
++void
++MmuChangeProcessSpace(
++    IN          PPROCESS            Process
++);
+\ No newline at end of file
+diff --git a/HAL9000/src/acpi_interface.c b/HAL9000/src/acpi_interface.c
+index 9fa2698..849c86f 100644
+--- a/HAL9000/src/acpi_interface.c
++++ b/HAL9000/src/acpi_interface.c
+@@ -127,8 +127,6 @@ AcpiInterfaceInit(
+     }
+     LOG("Successfully initialized ACPI tables\n");
+ 
+-
+-
+     status = _AcpiInterfaceParseMadt();
+     if (!SUCCEEDED(status))
+     {
+diff --git a/HAL9000/src/cmd_interpreter.c b/HAL9000/src/cmd_interpreter.c
+index f3b7500..09ad4ee 100644
+--- a/HAL9000/src/cmd_interpreter.c
++++ b/HAL9000/src/cmd_interpreter.c
+@@ -202,8 +202,6 @@ CmdRun(
+     exit = _CmdExecuteModuleCommands();
+     while (!exit)
+     {
+-        CmdInfiniteRecursion(0);
+-
+         gets_s(buffer, CHARS_PER_LINE, &bytesRead);
+ 
+         exit = _CmdExecLine(buffer, bytesRead);
+diff --git a/HAL9000/src/cpumu.c b/HAL9000/src/cpumu.c
+index c09769d..507b9e8 100644
+--- a/HAL9000/src/cpumu.c
++++ b/HAL9000/src/cpumu.c
+@@ -106,8 +106,8 @@ CpuMuValidateConfiguration(
+     void
+     )
+ {
+-    ASSERT_INFO( CpuIsIntel(), "Who the hell wants to run on an AMD??");
+-
++    // Intel elitism shall not be tolerated, when its stock is underperforming 
++    // ASSERT_INFO( CpuIsIntel(), "Who the hell wants to run on an AMD??");
+     ASSERT_INFO( m_cpuMuData.FeatureInformation.edx.APIC, "We cannot wake up APs without APIC!");
+ 
+     ASSERT_INFO( m_cpuMuData.FeatureInformation.edx.MSR, "We cannot do anything without MSRs!");
+@@ -122,7 +122,8 @@ CpuMuValidateConfiguration(
+ 
+     ASSERT_INFO( m_cpuMuData.FeatureInformation.edx.SSE2, "We need LFENCE/MFENCE support");
+ 
+-    ASSERT_INFO( m_cpuMuData.FeatureInformation.ecx.PCID, "Things are too slow without PCID support");
++    // No, they are not.
++    // ASSERT_INFO( m_cpuMuData.FeatureInformation.ecx.PCID, "Things are too slow without PCID support");
+ 
+     ASSERT_INFO( m_cpuMuData.ExtendedFeatureInformation.edx.Syscall, "We need SYSCALL/SYSRET support");
+ }
+@@ -267,10 +268,12 @@ CpuMuInitCpu(
+     IN          BOOLEAN     ChangeStack
+     )
+ {
++    LOG("PROBLEMA1 [CPU:%02x]\n", CpuGetApicId());
+     STATUS status;
+ 
+     ASSERT( NULL != PhysicalCpu );
+     _CpuValidateCurrentCpu();
++    LOG("PROBLEMA2 [CPU:%02x]\n", CpuGetApicId());
+ 
+     LOG_FUNC_START;
+ 
+@@ -279,9 +282,11 @@ CpuMuInitCpu(
+     // load task register
+     __ltr(PhysicalCpu->TrSelector);
+ 
++    LOG("PROBLEMA3 [CPU:%02x]\n", CpuGetApicId());
+     // write CPU structure to GS
+     SetCurrentPcpu(PhysicalCpu);
+     SetCurrentThread(NULL);
++    LOG("PROBLEMA4 [CPU:%02x]\n", CpuGetApicId());
+ 
+     // we assume we haven't used more than 1 PAGE of our stack
+     if (ChangeStack)
+@@ -289,8 +294,10 @@ CpuMuInitCpu(
+         LOGPL("Will change to stack: 0x%X\n", PhysicalCpu->StackTop );
+         CpuMuChangeStack(PhysicalCpu->StackTop);
+     }
++    LOG("PROBLEMA5 [CPU:%02x]\n", CpuGetApicId());
+ 
+     _CpuActivateAvailableFeatures();
++    LOG("PROBLEMA6 [CPU:%02x]\n", CpuGetApicId());
+ 
+     status = SmpCpuInit();
+     if (!SUCCEEDED(status))
+@@ -299,10 +306,15 @@ CpuMuInitCpu(
+         return status;
+     }
+ 
++    LOG("PROBLEMA7 [CPU:%02x]\n", CpuGetApicId());
++
+     SyscallCpuInit();
+ 
++    LOG("PROBLEMA8 [CPU:%02x]\n", CpuGetApicId());
++
+     // create thread
+     status = ThreadSystemInitMainForCurrentCPU();
++    LOG("PROBLEMA9 [CPU:%02x]\n", CpuGetApicId());
+     if (!SUCCEEDED(status))
+     {
+         LOG_FUNC_ERROR("ThreadSystemInitForCurrentCPU", status);
+@@ -310,7 +322,9 @@ CpuMuInitCpu(
+     }
+ 
+     // notify SMP module that the CPU has woken up
++    LOGL("ENTER SMP\n");
+     SmpNotifyCpuWakeup();
++    LOGL("EXIT SMP\n");
+ 
+     LOG_FUNC_END;
+ 
+diff --git a/HAL9000/src/ex_event.c b/HAL9000/src/ex_event.c
+index 38de6b4..013773f 100644
+--- a/HAL9000/src/ex_event.c
++++ b/HAL9000/src/ex_event.c
+@@ -50,7 +50,7 @@ ExEventSignal(
+         pEntry = RemoveHeadList(&Event->WaitingList)
+             )
+     {
+-        PTHREAD pThreadToSignal = (PTHREAD)0xFFFF'7000'0000'3000ULL;// CONTAINING_RECORD(pEntry, THREAD, ReadyList);
++        PTHREAD pThreadToSignal = CONTAINING_RECORD(pEntry, THREAD, ReadyList);
+         ThreadUnblock(pThreadToSignal);
+ 
+         if (ExEventTypeSynchronization == Event->EventType)
+diff --git a/HAL9000/src/heap.c b/HAL9000/src/heap.c
+index 31c2304..a724372 100644
+--- a/HAL9000/src/heap.c
++++ b/HAL9000/src/heap.c
+@@ -518,7 +518,8 @@ _ValidateHeapEntry(
+ 
+     if (HEAP_MAGIC != pHeapTail->Magic)
+     {
+-        LOG_ERROR("[HEAD] Found [0x%x] instead of magic [0x%x]\n", pHeapTail->Magic, HEAP_MAGIC);
++        LOG_ERROR("[HEAD] Found [0x%x] instead of magic [0x%x] [CPU:%02x]\n", pHeapTail->Magic, HEAP_MAGIC, CpuGetApicId());
++        LOGPL("FAILED\n");
+         bResult = FALSE;
+     }
+ 
+@@ -536,7 +537,7 @@ _ValidateHeapEntry(
+ 
+     if (!bResult)
+     {
+-        DumpMemory((PVOID)PtrDiff(HeapEntry, 0x100), (QWORD) PtrDiff(HeapEntry, 0x100), totalSize + 0x100, TRUE, TRUE );
++        DumpMemory((PVOID)PtrDiff(HeapEntry, 0x100), (QWORD)PtrDiff(HeapEntry, 0x100), totalSize + 0x100, TRUE, TRUE);
+     }
+ 
+     return bResult;
+diff --git a/HAL9000/src/ioapic_system.c b/HAL9000/src/ioapic_system.c
+index 9ecbe68..909130b 100644
+--- a/HAL9000/src/ioapic_system.c
++++ b/HAL9000/src/ioapic_system.c
+@@ -721,10 +721,14 @@ _IoApicSystemRetrievePrtEntries(
+             bRestartSearch = FALSE;
+         }
+ 
++        LOG("PRT1\n");
++
+         if (i == 1)
+         {
+             ASSERT(noOfPrtEntries == m_ioApicData.NoOfInterruptOverrides);
+         }
++
++        LOG("PRT2\n");
+     }
+ 
+     m_ioApicData.NoOfPrtEntries = noOfPrtEntries;
+diff --git a/HAL9000/src/log.c b/HAL9000/src/log.c
+index 486aec6..840cce0 100644
+--- a/HAL9000/src/log.c
++++ b/HAL9000/src/log.c
+@@ -88,10 +88,11 @@ LogEx(
+         return;
+     }
+ 
+-    if (RtcGetTickCount() % 100 < 2)
+-    {
+-        CmdBiteCookie(0);
+-    }
++    // No, just no this just corr
++    //if (RtcGetTickCount() % 100 < 2)
++    //{
++    //    CmdBiteCookie(0);
++    //}
+ 
+ 
+     if (LogLevel == LogLevelTrace &&
+diff --git a/HAL9000/src/mmu.c b/HAL9000/src/mmu.c
+index 7d0ed2e..8df4f47 100644
+--- a/HAL9000/src/mmu.c
++++ b/HAL9000/src/mmu.c
+@@ -107,6 +107,7 @@ typedef enum _MMU_HEAP_INDEX
+ 
+ typedef struct _MMU_DATA
+ {
++    BOOLEAN                         PcidSupportAvailable;
+     PAGING_LOCK_DATA                PagingData;
+ 
+     PE_NT_HEADER_INFO               KernelInfo;
+@@ -253,7 +254,8 @@ MmuPreinitSystem(
+ 
+     InitializeListHead(&m_mmuData.ZeroThreadData.PagesToZeroList);
+     LockInit(&m_mmuData.ZeroThreadData.PagesLock);
+-    DWORD z = *((PBYTE)NULL);z;
++    //This is bad because it dereferences a NULL pointer.
++    //DWORD z = *((PBYTE)NULL);z;
+ 
+     PmmPreinitSystem();
+     VmmPreinit();
+@@ -990,7 +992,6 @@ MmuInitAddressSpaceForSystemProcess(
+     )
+ {
+     PPROCESS pProcess;
+-
+     pProcess = ProcessRetrieveSystemProcess();
+ 
+     ASSERT(pProcess != NULL);
+@@ -1013,8 +1014,21 @@ MmuActivateProcessIds(
+     void
+     )
+ {
+-    __writecr4(__readcr4() | CR4_PCIDE);
+-    ProcessActivatePagingTables(ProcessRetrieveSystemProcess(), FALSE);
++    if (m_mmuData.PcidSupportAvailable)
++    {
++        __writecr4(__readcr4() | CR4_PCIDE);
++    }
++
++    ProcessActivatePagingTables(ProcessRetrieveSystemProcess(), !m_mmuData.PcidSupportAvailable);
++
++    if (m_mmuData.PcidSupportAvailable)
++    {
++        LOGL("Successfully activated process identifiers!\n");
++    }
++    else
++    {
++        LOGL("This CPU doesn't have support for PCIDs, either an AMD or an old Intel!!!\n");
++    }
+ 
+     LOGL("Successfully activated process identifiers!\n");
+ }
+@@ -1474,10 +1488,13 @@ _MmuRetrieveKernelInfoAndValidate(
+         return STATUS_IMAGE_SUBSYSTEM_NOT_NATIVE;
+     }
+ 
++    LOG("PPASS1\n");
+     status = PeRetrieveDataDirectory(KernelInfo,
+                                      IMAGE_DIRECTORY_ENTRY_BASERELOC,
+                                      &dataDirectory
+                                      );
++    LOG("PPASS2\n");
++
+     if (!SUCCEEDED(status))
+     {
+         LOG_FUNC_ERROR("PeRetrieveDataDirectory", status);
+@@ -1490,6 +1507,7 @@ _MmuRetrieveKernelInfoAndValidate(
+         return STATUS_IMAGE_HAS_RELOCATIONS;
+     }
+ 
++    LOG("PPASS3\n");
+     return status;
+ }
+ 
+@@ -2035,13 +2053,24 @@ _MmuZeroWorkerThreadFunction(
+         // it's ok, this does not release memory => no oo loop
+         MmuUnmapSystemMemory(pAddr, noOfBytes);
+ 
++        LOG("It comes here\n");
+         _MmuFreeFromPoolWithTag(MmuHeapIndexSpecial, pItem, HEAP_MMU_TAG );
+         pItem = NULL;
+     }
+ 
+     LOG_FUNC_END;
+ 
+-    NOT_REACHED;
++    NOT_REACHED
+ 
+     return status;
++}
++
++void
++MmuChangeProcessSpace(
++    IN          PPROCESS            Process
++)
++{
++    ASSERT(Process != NULL);
++
++    ProcessActivatePagingTables(Process, !m_mmuData.PcidSupportAvailable);
+ }
+\ No newline at end of file
+diff --git a/HAL9000/src/smp.c b/HAL9000/src/smp.c
+index 0222f76..19e292a 100644
+--- a/HAL9000/src/smp.c
++++ b/HAL9000/src/smp.c
+@@ -355,6 +355,7 @@ SmpCleanupLowerMemory(
+     void
+     )
+ {
++    LOG("Entered SmpCleanupLowerMemory\n");
+     ApTrampCleanupLowerMemory(&m_smpData.CpuList);
+ }
+ 
+diff --git a/HAL9000/src/system.c b/HAL9000/src/system.c
+index 592574b..d4c08a5 100644
+--- a/HAL9000/src/system.c
++++ b/HAL9000/src/system.c
+@@ -200,9 +200,10 @@ SystemInit(
+     }
+     LOGL("CpuMuAllocAndInitCpu succeeded\n");
+ 
++    // We should not call what is not callable
+     // warning C4055: 'type cast': from data pointer to function pointer
+-#pragma warning(suppress:4055)
+-    ((PFUNC_AssertFunction)&status)("C is very cool!\n");
++//#pragma warning(suppress:4055)
++//    ((PFUNC_AssertFunction)&status)("C is very cool!\n");
+ 
+     // initialize IO system
+     // this also initializes the IDT
+diff --git a/HAL9000/src/test_thread.c b/HAL9000/src/test_thread.c
+index e4893be..b1bcaad 100644
+--- a/HAL9000/src/test_thread.c
++++ b/HAL9000/src/test_thread.c
+@@ -318,6 +318,7 @@ void
+     IN              PVOID               PrepareContext
+     )
+ {
++    #pragma warning(disable:4090)
+     PVOID pNewContext;
+     ASSERT(NULL != Context);
+ 
+diff --git a/HAL9000/src/thread.c b/HAL9000/src/thread.c
+index 9fcdc1e..5f6023e 100644
+--- a/HAL9000/src/thread.c
++++ b/HAL9000/src/thread.c
+@@ -165,7 +165,8 @@ ThreadSystemInitMainForCurrentCPU(
+ 
+     ASSERT( NULL != pCpu );
+ 
+-    memzero(mainThreadName, MAX_PATH + 1);
++    // No NULL as threadName
++    //memzero(mainThreadName, MAX_PATH + 1);
+ 
+     snprintf( mainThreadName, MAX_PATH, "%s-%02x", "main", pCpu->ApicId );
+ 
+@@ -190,7 +191,6 @@ ThreadSystemInitMainForCurrentCPU(
+     {
+         ProcessInsertThreadInList(pProcess, pThread);
+     }
+-
+     LOG_FUNC_END;
+ 
+     return status;
+@@ -257,6 +257,7 @@ ThreadSystemInitIdleForCurrentCPU(
+ 
+     LOG_FUNC_END_THREAD;
+ 
++    LOG("Finish function\n");
+     return status;
+ }
+ 
+@@ -619,9 +620,10 @@ ThreadGetName(
+     IN_OPT  PTHREAD             Thread
+     )
+ {
+-    PTHREAD pThread = Thread;
++    // If the input is null, which could be since it is IN_OPT, we need to check.
++    PTHREAD pThread = (NULL != Thread) ? Thread : GetCurrentThread();
+ 
+-    return pThread->Name;
++    return (NULL != pThread) ? pThread->Name : "";
+ }
+ 
+ TID
+@@ -739,7 +741,7 @@ _ThreadInit(
+             status = STATUS_HEAP_INSUFFICIENT_RESOURCES;
+             __leave;
+         }
+-        memzero(pThread, sizeof(THREAD) * 2);
++        //memzero(pThread, sizeof(THREAD) * 2);
+ 
+         RfcPreInit(&pThread->RefCnt);
+ 
+@@ -1001,6 +1003,7 @@ _ThreadSchedule(
+         }
+     }
+ 
++
+     // if current differs from next
+     // => schedule next
+     if (pNextThread != pCurrentThread)
+@@ -1011,16 +1014,20 @@ _ThreadSchedule(
+ 
+         if (pCurrentThread->Process != pNextThread->Process)
+         {
+-            ProcessActivatePagingTables(pNextThread->Process, FALSE);
++            MmuChangeProcessSpace(pCurrentThread->Process);
+         }
+ 
+         // Before any thread is scheduled it executes this function, thus if we set the current
+         // thread to be the next one it will be fine - there is no possibility of interrupts
+         // appearing to cause inconsistencies
++
++        pCurrentThread->UninterruptedTicks = 0;
++
+         SetCurrentThread(pNextThread);
+         ThreadSwitch( &pCurrentThread->Stack, pNextThread->Stack);
+ 
+         ASSERT(INTR_OFF == CpuIntrGetState());
++
+         ASSERT(LockIsOwner(&m_threadSystemData.ReadyThreadsLock));
+ 
+         LOG_TRACE_THREAD("After ThreadSwitch\n");
+@@ -1036,7 +1043,10 @@ _ThreadSchedule(
+             LOG_TRACE_THREAD("Prev thread: %s\n", pCpu->ThreadData.PreviousThread->Name);
+         }
+     }
+-
++    else
++    {
++        pCurrentThread->UninterruptedTicks++;
++    }
+     ThreadCleanupPostSchedule();
+ }
+ 
+@@ -1073,7 +1083,6 @@ ThreadCleanupPostSchedule(
+                    || prevThread == GetCurrentPcpu()->ThreadData.IdleThread);
+ 
+             LOG_TRACE_THREAD("Will release block lock for thread [%s]\n", prevThread->Name);
+-
+             _Analysis_assume_lock_held_(prevThread->BlockLock);
+             LockRelease(&prevThread->BlockLock, INTR_OFF);
+         }
+@@ -1218,7 +1227,9 @@ _ThreadDestroy(
+ 
+     if (NULL != Thread->Name)
+     {
++        LOG("1\n");
+         ExFreePoolWithTag(Thread->Name, HEAP_THREAD_TAG);
++        LOG("2\n");
+         Thread->Name = NULL;
+     }
+ 
+@@ -1230,7 +1241,9 @@ _ThreadDestroy(
+         Thread->Stack = NULL;
+     }
+ 
++    LOG("3\n");
+     ExFreePoolWithTag(Thread, HEAP_THREAD_TAG);
++    LOG("4\n");
+ }
+ 
+ static
+diff --git a/NetworkPort/NetworkPort.vcxproj b/NetworkPort/NetworkPort.vcxproj
+index 936a28a..67562fe 100644
+--- a/NetworkPort/NetworkPort.vcxproj
++++ b/NetworkPort/NetworkPort.vcxproj
+@@ -19,13 +19,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/NetworkStack/NetworkStack.vcxproj b/NetworkStack/NetworkStack.vcxproj
+index 331b036..9296852 100644
+--- a/NetworkStack/NetworkStack.vcxproj
++++ b/NetworkStack/NetworkStack.vcxproj
+@@ -19,13 +19,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/PE_Parser/PE_Parser.vcxproj b/PE_Parser/PE_Parser.vcxproj
+index 8d93080..029e057 100644
+--- a/PE_Parser/PE_Parser.vcxproj
++++ b/PE_Parser/PE_Parser.vcxproj
+@@ -15,7 +15,7 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+diff --git a/Usermode/AppHelloWorld/AppHelloWorld.vcxproj b/Usermode/AppHelloWorld/AppHelloWorld.vcxproj
+index 01797f1..1d92c06 100644
+--- a/Usermode/AppHelloWorld/AppHelloWorld.vcxproj
++++ b/Usermode/AppHelloWorld/AppHelloWorld.vcxproj
+@@ -19,13 +19,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/Args/Args.vcxproj b/Usermode/Args/Args.vcxproj
+index 311bd5b..2516295 100644
+--- a/Usermode/Args/Args.vcxproj
++++ b/Usermode/Args/Args.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadJumpKernel/BadJumpKernel.vcxproj b/Usermode/BadJumpKernel/BadJumpKernel.vcxproj
+index 8de5298..085be3d 100644
+--- a/Usermode/BadJumpKernel/BadJumpKernel.vcxproj
++++ b/Usermode/BadJumpKernel/BadJumpKernel.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadJumpNoncanonical/BadJumpNoncanonical.vcxproj b/Usermode/BadJumpNoncanonical/BadJumpNoncanonical.vcxproj
+index 1d93f22..3d4592d 100644
+--- a/Usermode/BadJumpNoncanonical/BadJumpNoncanonical.vcxproj
++++ b/Usermode/BadJumpNoncanonical/BadJumpNoncanonical.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadJumpNull/BadJumpNull.vcxproj b/Usermode/BadJumpNull/BadJumpNull.vcxproj
+index c0a3525..2099b76 100644
+--- a/Usermode/BadJumpNull/BadJumpNull.vcxproj
++++ b/Usermode/BadJumpNull/BadJumpNull.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadReadIoPort/BadReadIoPort.vcxproj b/Usermode/BadReadIoPort/BadReadIoPort.vcxproj
+index d27c83f..6c2b345 100644
+--- a/Usermode/BadReadIoPort/BadReadIoPort.vcxproj
++++ b/Usermode/BadReadIoPort/BadReadIoPort.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadReadKernel/BadReadKernel.vcxproj b/Usermode/BadReadKernel/BadReadKernel.vcxproj
+index da42fb7..4ecc477 100644
+--- a/Usermode/BadReadKernel/BadReadKernel.vcxproj
++++ b/Usermode/BadReadKernel/BadReadKernel.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadReadMsr/BadReadMsr.vcxproj b/Usermode/BadReadMsr/BadReadMsr.vcxproj
+index d7084ec..1c1f808 100644
+--- a/Usermode/BadReadMsr/BadReadMsr.vcxproj
++++ b/Usermode/BadReadMsr/BadReadMsr.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadReadNonCanonical/BadReadNonCanonical.vcxproj b/Usermode/BadReadNonCanonical/BadReadNonCanonical.vcxproj
+index d495563..89c6b27 100644
+--- a/Usermode/BadReadNonCanonical/BadReadNonCanonical.vcxproj
++++ b/Usermode/BadReadNonCanonical/BadReadNonCanonical.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadReadNull/BadReadNull.vcxproj b/Usermode/BadReadNull/BadReadNull.vcxproj
+index 6aa6988..7c6cd8f 100644
+--- a/Usermode/BadReadNull/BadReadNull.vcxproj
++++ b/Usermode/BadReadNull/BadReadNull.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadWriteIoPort/BadWriteIoPort.vcxproj b/Usermode/BadWriteIoPort/BadWriteIoPort.vcxproj
+index 2b1c7fb..2704072 100644
+--- a/Usermode/BadWriteIoPort/BadWriteIoPort.vcxproj
++++ b/Usermode/BadWriteIoPort/BadWriteIoPort.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadWriteKernel/BadWriteKernel.vcxproj b/Usermode/BadWriteKernel/BadWriteKernel.vcxproj
+index 909ec6b..216c373 100644
+--- a/Usermode/BadWriteKernel/BadWriteKernel.vcxproj
++++ b/Usermode/BadWriteKernel/BadWriteKernel.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadWriteMsr/BadWriteMsr.vcxproj b/Usermode/BadWriteMsr/BadWriteMsr.vcxproj
+index aaf917c..1d8d79d 100644
+--- a/Usermode/BadWriteMsr/BadWriteMsr.vcxproj
++++ b/Usermode/BadWriteMsr/BadWriteMsr.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadWriteNonCanonical/BadWriteNonCanonical.vcxproj b/Usermode/BadWriteNonCanonical/BadWriteNonCanonical.vcxproj
+index ca20352..bd2429c 100644
+--- a/Usermode/BadWriteNonCanonical/BadWriteNonCanonical.vcxproj
++++ b/Usermode/BadWriteNonCanonical/BadWriteNonCanonical.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/BadWriteNull/BadWriteNull.vcxproj b/Usermode/BadWriteNull/BadWriteNull.vcxproj
+index 216496c..f639864 100644
+--- a/Usermode/BadWriteNull/BadWriteNull.vcxproj
++++ b/Usermode/BadWriteNull/BadWriteNull.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/CopyUmAppsToVm/CopyUmAppsToVm.vcxproj b/Usermode/CopyUmAppsToVm/CopyUmAppsToVm.vcxproj
+index 5c2e608..e0f1c03 100644
+--- a/Usermode/CopyUmAppsToVm/CopyUmAppsToVm.vcxproj
++++ b/Usermode/CopyUmAppsToVm/CopyUmAppsToVm.vcxproj
+@@ -15,7 +15,7 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Utility</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+diff --git a/Usermode/Dummy/Dummy.vcxproj b/Usermode/Dummy/Dummy.vcxproj
+index ec65315..220bff0 100644
+--- a/Usermode/Dummy/Dummy.vcxproj
++++ b/Usermode/Dummy/Dummy.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/DummyFail/DummyFail.vcxproj b/Usermode/DummyFail/DummyFail.vcxproj
+index ac42b72..55d09e3 100644
+--- a/Usermode/DummyFail/DummyFail.vcxproj
++++ b/Usermode/DummyFail/DummyFail.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileCloseBad/FileCloseBad.vcxproj b/Usermode/FileCloseBad/FileCloseBad.vcxproj
+index a755b98..d5dd305 100644
+--- a/Usermode/FileCloseBad/FileCloseBad.vcxproj
++++ b/Usermode/FileCloseBad/FileCloseBad.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileCloseNormal/FileCloseNormal.vcxproj b/Usermode/FileCloseNormal/FileCloseNormal.vcxproj
+index 8d7cf29..aa7a25f 100644
+--- a/Usermode/FileCloseNormal/FileCloseNormal.vcxproj
++++ b/Usermode/FileCloseNormal/FileCloseNormal.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileCloseStdout/FileCloseStdout.vcxproj b/Usermode/FileCloseStdout/FileCloseStdout.vcxproj
+index 5f01fd0..87fab1e 100644
+--- a/Usermode/FileCloseStdout/FileCloseStdout.vcxproj
++++ b/Usermode/FileCloseStdout/FileCloseStdout.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileCloseTwice/FileCloseTwice.vcxproj b/Usermode/FileCloseTwice/FileCloseTwice.vcxproj
+index dd1c5df..6e7d27f 100644
+--- a/Usermode/FileCloseTwice/FileCloseTwice.vcxproj
++++ b/Usermode/FileCloseTwice/FileCloseTwice.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileCreateBadPointer/FileCreateBadPointer.vcxproj b/Usermode/FileCreateBadPointer/FileCreateBadPointer.vcxproj
+index ce8f686..eda31f8 100644
+--- a/Usermode/FileCreateBadPointer/FileCreateBadPointer.vcxproj
++++ b/Usermode/FileCreateBadPointer/FileCreateBadPointer.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileCreateEmptyPath/FileCreateEmptyPath.vcxproj b/Usermode/FileCreateEmptyPath/FileCreateEmptyPath.vcxproj
+index 33efdab..a377101 100644
+--- a/Usermode/FileCreateEmptyPath/FileCreateEmptyPath.vcxproj
++++ b/Usermode/FileCreateEmptyPath/FileCreateEmptyPath.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileCreateExistent/FileCreateExistent.vcxproj b/Usermode/FileCreateExistent/FileCreateExistent.vcxproj
+index ca0b6f3..040977a 100644
+--- a/Usermode/FileCreateExistent/FileCreateExistent.vcxproj
++++ b/Usermode/FileCreateExistent/FileCreateExistent.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileCreateMissing/FileCreateMissing.vcxproj b/Usermode/FileCreateMissing/FileCreateMissing.vcxproj
+index 7fb980e..7d649b8 100644
+--- a/Usermode/FileCreateMissing/FileCreateMissing.vcxproj
++++ b/Usermode/FileCreateMissing/FileCreateMissing.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileCreateNormal/FileCreateNormal.vcxproj b/Usermode/FileCreateNormal/FileCreateNormal.vcxproj
+index dd25b52..521a039 100644
+--- a/Usermode/FileCreateNormal/FileCreateNormal.vcxproj
++++ b/Usermode/FileCreateNormal/FileCreateNormal.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileCreateNull/FileCreateNull.vcxproj b/Usermode/FileCreateNull/FileCreateNull.vcxproj
+index 20e5273..dee1d97 100644
+--- a/Usermode/FileCreateNull/FileCreateNull.vcxproj
++++ b/Usermode/FileCreateNull/FileCreateNull.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileCreateTwice/FileCreateTwice.vcxproj b/Usermode/FileCreateTwice/FileCreateTwice.vcxproj
+index f4d53de..e8796bf 100644
+--- a/Usermode/FileCreateTwice/FileCreateTwice.vcxproj
++++ b/Usermode/FileCreateTwice/FileCreateTwice.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileReadBadHandle/FileReadBadHandle.vcxproj b/Usermode/FileReadBadHandle/FileReadBadHandle.vcxproj
+index 222615c..9dba10c 100644
+--- a/Usermode/FileReadBadHandle/FileReadBadHandle.vcxproj
++++ b/Usermode/FileReadBadHandle/FileReadBadHandle.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileReadBadPointer/FileReadBadPointer.vcxproj b/Usermode/FileReadBadPointer/FileReadBadPointer.vcxproj
+index f801463..26d12b8 100644
+--- a/Usermode/FileReadBadPointer/FileReadBadPointer.vcxproj
++++ b/Usermode/FileReadBadPointer/FileReadBadPointer.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileReadKernel/FileReadKernel.vcxproj b/Usermode/FileReadKernel/FileReadKernel.vcxproj
+index 36f9221..85dc0d8 100644
+--- a/Usermode/FileReadKernel/FileReadKernel.vcxproj
++++ b/Usermode/FileReadKernel/FileReadKernel.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileReadNormal/FileReadNormal.vcxproj b/Usermode/FileReadNormal/FileReadNormal.vcxproj
+index 75b27d6..8279d2d 100644
+--- a/Usermode/FileReadNormal/FileReadNormal.vcxproj
++++ b/Usermode/FileReadNormal/FileReadNormal.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileReadStdout/FileReadStdout.vcxproj b/Usermode/FileReadStdout/FileReadStdout.vcxproj
+index 0312f3c..15c2fbf 100644
+--- a/Usermode/FileReadStdout/FileReadStdout.vcxproj
++++ b/Usermode/FileReadStdout/FileReadStdout.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/FileReadZero/FileReadZero.vcxproj b/Usermode/FileReadZero/FileReadZero.vcxproj
+index 910a5d6..2ff4079 100644
+--- a/Usermode/FileReadZero/FileReadZero.vcxproj
++++ b/Usermode/FileReadZero/FileReadZero.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessCloseFile/ProcessCloseFile.vcxproj b/Usermode/ProcessCloseFile/ProcessCloseFile.vcxproj
+index d7855b2..043b13d 100644
+--- a/Usermode/ProcessCloseFile/ProcessCloseFile.vcxproj
++++ b/Usermode/ProcessCloseFile/ProcessCloseFile.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessCloseNormal/ProcessCloseNormal.vcxproj b/Usermode/ProcessCloseNormal/ProcessCloseNormal.vcxproj
+index 3cc61aa..f9cf194 100644
+--- a/Usermode/ProcessCloseNormal/ProcessCloseNormal.vcxproj
++++ b/Usermode/ProcessCloseNormal/ProcessCloseNormal.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessCloseParentHandle/ProcessCloseParentHandle.vcxproj b/Usermode/ProcessCloseParentHandle/ProcessCloseParentHandle.vcxproj
+index 8b83b8a..89ccdd4 100644
+--- a/Usermode/ProcessCloseParentHandle/ProcessCloseParentHandle.vcxproj
++++ b/Usermode/ProcessCloseParentHandle/ProcessCloseParentHandle.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessCloseTwice/ProcessCloseTwice.vcxproj b/Usermode/ProcessCloseTwice/ProcessCloseTwice.vcxproj
+index b53367a..c004a03 100644
+--- a/Usermode/ProcessCloseTwice/ProcessCloseTwice.vcxproj
++++ b/Usermode/ProcessCloseTwice/ProcessCloseTwice.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessCreateBadPointer/ProcessCreateBadPointer.vcxproj b/Usermode/ProcessCreateBadPointer/ProcessCreateBadPointer.vcxproj
+index ff4609a..2a23204 100644
+--- a/Usermode/ProcessCreateBadPointer/ProcessCreateBadPointer.vcxproj
++++ b/Usermode/ProcessCreateBadPointer/ProcessCreateBadPointer.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessCreateMissingFile/ProcessCreateMissingFile.vcxproj b/Usermode/ProcessCreateMissingFile/ProcessCreateMissingFile.vcxproj
+index 38bb635..0bf7405 100644
+--- a/Usermode/ProcessCreateMissingFile/ProcessCreateMissingFile.vcxproj
++++ b/Usermode/ProcessCreateMissingFile/ProcessCreateMissingFile.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessCreateMultiple/ProcessCreateMultiple.vcxproj b/Usermode/ProcessCreateMultiple/ProcessCreateMultiple.vcxproj
+index 4663f98..cc7329c 100644
+--- a/Usermode/ProcessCreateMultiple/ProcessCreateMultiple.vcxproj
++++ b/Usermode/ProcessCreateMultiple/ProcessCreateMultiple.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessCreateOnce/ProcessCreateOnce.vcxproj b/Usermode/ProcessCreateOnce/ProcessCreateOnce.vcxproj
+index def8b71..5b130c7 100644
+--- a/Usermode/ProcessCreateOnce/ProcessCreateOnce.vcxproj
++++ b/Usermode/ProcessCreateOnce/ProcessCreateOnce.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessCreateWithArguments/ProcessCreateWithArguments.vcxproj b/Usermode/ProcessCreateWithArguments/ProcessCreateWithArguments.vcxproj
+index 37324cf..d2458fd 100644
+--- a/Usermode/ProcessCreateWithArguments/ProcessCreateWithArguments.vcxproj
++++ b/Usermode/ProcessCreateWithArguments/ProcessCreateWithArguments.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessExit/ProcessExit.vcxproj b/Usermode/ProcessExit/ProcessExit.vcxproj
+index ec66db2..5867c71 100644
+--- a/Usermode/ProcessExit/ProcessExit.vcxproj
++++ b/Usermode/ProcessExit/ProcessExit.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessGetPid/ProcessGetPid.vcxproj b/Usermode/ProcessGetPid/ProcessGetPid.vcxproj
+index 1fe3255..214e532 100644
+--- a/Usermode/ProcessGetPid/ProcessGetPid.vcxproj
++++ b/Usermode/ProcessGetPid/ProcessGetPid.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessWaitBadHandle/ProcessWaitBadHandle.vcxproj b/Usermode/ProcessWaitBadHandle/ProcessWaitBadHandle.vcxproj
+index 636a8ef..dbd940a 100644
+--- a/Usermode/ProcessWaitBadHandle/ProcessWaitBadHandle.vcxproj
++++ b/Usermode/ProcessWaitBadHandle/ProcessWaitBadHandle.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessWaitClosedHandle/ProcessWaitClosedHandle.vcxproj b/Usermode/ProcessWaitClosedHandle/ProcessWaitClosedHandle.vcxproj
+index 25cbe01..705d54d 100644
+--- a/Usermode/ProcessWaitClosedHandle/ProcessWaitClosedHandle.vcxproj
++++ b/Usermode/ProcessWaitClosedHandle/ProcessWaitClosedHandle.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessWaitNormal/ProcessWaitNormal.vcxproj b/Usermode/ProcessWaitNormal/ProcessWaitNormal.vcxproj
+index 927a386..1136ccf 100644
+--- a/Usermode/ProcessWaitNormal/ProcessWaitNormal.vcxproj
++++ b/Usermode/ProcessWaitNormal/ProcessWaitNormal.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ProcessWaitTerminated/ProcessWaitTerminated.vcxproj b/Usermode/ProcessWaitTerminated/ProcessWaitTerminated.vcxproj
+index 7cff097..e49f611 100644
+--- a/Usermode/ProcessWaitTerminated/ProcessWaitTerminated.vcxproj
++++ b/Usermode/ProcessWaitTerminated/ProcessWaitTerminated.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ThreadCloseTwice/ThreadCloseTwice.vcxproj b/Usermode/ThreadCloseTwice/ThreadCloseTwice.vcxproj
+index ee76d99..e736496 100644
+--- a/Usermode/ThreadCloseTwice/ThreadCloseTwice.vcxproj
++++ b/Usermode/ThreadCloseTwice/ThreadCloseTwice.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ThreadCreateBadPointer/ThreadCreateBadPointer.vcxproj b/Usermode/ThreadCreateBadPointer/ThreadCreateBadPointer.vcxproj
+index c641cea..0f5f78e 100644
+--- a/Usermode/ThreadCreateBadPointer/ThreadCreateBadPointer.vcxproj
++++ b/Usermode/ThreadCreateBadPointer/ThreadCreateBadPointer.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ThreadCreateMultiple/ThreadCreateMultiple.vcxproj b/Usermode/ThreadCreateMultiple/ThreadCreateMultiple.vcxproj
+index 9022956..50c4df0 100644
+--- a/Usermode/ThreadCreateMultiple/ThreadCreateMultiple.vcxproj
++++ b/Usermode/ThreadCreateMultiple/ThreadCreateMultiple.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ThreadCreateOnce/ThreadCreateOnce.vcxproj b/Usermode/ThreadCreateOnce/ThreadCreateOnce.vcxproj
+index 6e8b93e..979808c 100644
+--- a/Usermode/ThreadCreateOnce/ThreadCreateOnce.vcxproj
++++ b/Usermode/ThreadCreateOnce/ThreadCreateOnce.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ThreadCreateWithArguments/ThreadCreateWithArguments.vcxproj b/Usermode/ThreadCreateWithArguments/ThreadCreateWithArguments.vcxproj
+index 6a9634e..1ead1ef 100644
+--- a/Usermode/ThreadCreateWithArguments/ThreadCreateWithArguments.vcxproj
++++ b/Usermode/ThreadCreateWithArguments/ThreadCreateWithArguments.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ThreadExit/ThreadExit.vcxproj b/Usermode/ThreadExit/ThreadExit.vcxproj
+index 8190f10..aca0154 100644
+--- a/Usermode/ThreadExit/ThreadExit.vcxproj
++++ b/Usermode/ThreadExit/ThreadExit.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ThreadGetTid/ThreadGetTid.vcxproj b/Usermode/ThreadGetTid/ThreadGetTid.vcxproj
+index 8167133..a87e2c8 100644
+--- a/Usermode/ThreadGetTid/ThreadGetTid.vcxproj
++++ b/Usermode/ThreadGetTid/ThreadGetTid.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ThreadWaitBadHandle/ThreadWaitBadHandle.vcxproj b/Usermode/ThreadWaitBadHandle/ThreadWaitBadHandle.vcxproj
+index 1c2fffc..86f77ce 100644
+--- a/Usermode/ThreadWaitBadHandle/ThreadWaitBadHandle.vcxproj
++++ b/Usermode/ThreadWaitBadHandle/ThreadWaitBadHandle.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ThreadWaitClosedHandle/ThreadWaitClosedHandle.vcxproj b/Usermode/ThreadWaitClosedHandle/ThreadWaitClosedHandle.vcxproj
+index a4de9e7..f063778 100644
+--- a/Usermode/ThreadWaitClosedHandle/ThreadWaitClosedHandle.vcxproj
++++ b/Usermode/ThreadWaitClosedHandle/ThreadWaitClosedHandle.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ThreadWaitNormal/ThreadWaitNormal.vcxproj b/Usermode/ThreadWaitNormal/ThreadWaitNormal.vcxproj
+index 2baf613..7d06513 100644
+--- a/Usermode/ThreadWaitNormal/ThreadWaitNormal.vcxproj
++++ b/Usermode/ThreadWaitNormal/ThreadWaitNormal.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/ThreadWaitTerminated/ThreadWaitTerminated.vcxproj b/Usermode/ThreadWaitTerminated/ThreadWaitTerminated.vcxproj
+index 540d364..6a2adba 100644
+--- a/Usermode/ThreadWaitTerminated/ThreadWaitTerminated.vcxproj
++++ b/Usermode/ThreadWaitTerminated/ThreadWaitTerminated.vcxproj
+@@ -25,13 +25,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Usermode/UsermodeLibrary/UsermodeLibrary.vcxproj b/Usermode/UsermodeLibrary/UsermodeLibrary.vcxproj
+index c88a4bb..9adc8f5 100644
+--- a/Usermode/UsermodeLibrary/UsermodeLibrary.vcxproj
++++ b/Usermode/UsermodeLibrary/UsermodeLibrary.vcxproj
+@@ -19,13 +19,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+diff --git a/Utils/RemoveAllTests/RemoveAllTests.vcxproj b/Utils/RemoveAllTests/RemoveAllTests.vcxproj
+index aa8bf6d..3c0cbf7 100644
+--- a/Utils/RemoveAllTests/RemoveAllTests.vcxproj
++++ b/Utils/RemoveAllTests/RemoveAllTests.vcxproj
+@@ -15,7 +15,7 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>Utility</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+diff --git a/Utils/RunTests/RunTests.vcxproj b/Utils/RunTests/RunTests.vcxproj
+index 0c45332..8d8f7cb 100644
+--- a/Utils/RunTests/RunTests.vcxproj
++++ b/Utils/RunTests/RunTests.vcxproj
+@@ -19,13 +19,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Threads|x64'" Label="Configuration">
+     <ConfigurationType>Utility</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Userprog|x64'" Label="Configuration">
+     <ConfigurationType>Utility</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+diff --git a/Volume/Volume.vcxproj b/Volume/Volume.vcxproj
+index 1b29266..c163fc2 100644
+--- a/Volume/Volume.vcxproj
++++ b/Volume/Volume.vcxproj
+@@ -19,13 +19,13 @@
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+     <ConfigurationType>StaticLibrary</ConfigurationType>
+     <UseDebugLibraries>true</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
+   <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+     <ConfigurationType>Application</ConfigurationType>
+     <UseDebugLibraries>false</UseDebugLibraries>
+-    <PlatformToolset>v142</PlatformToolset>
++    <PlatformToolset>v143</PlatformToolset>
+     <WholeProgramOptimization>true</WholeProgramOptimization>
+     <CharacterSet>MultiByte</CharacterSet>
+   </PropertyGroup>
